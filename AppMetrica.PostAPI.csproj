@@ -6,13 +6,13 @@
 		<Nullable>enable</Nullable>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<Authors>alexalok</Authors>
 		<Description>AppMetrica PostAPI client.</Description>
-		<PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+		<PackageReleaseNotes>Renamed registation method.</PackageReleaseNotes>
 		<PackageTags>appmetrica, yandex metrica, postapi, server events</PackageTags>
 		
 		<Copyright>© alexalok 2021</Copyright>

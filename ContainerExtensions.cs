@@ -5,7 +5,7 @@ namespace AppMetrica.PostAPI;
 
 public static class ContainerExtensions
 {
-    public static IServiceCollection AddAppMetricaReporter(this IServiceCollection services, IConfigurationSection? configurationSection = null, Action<AppMetricaOptions>? configureOptions = null)
+    public static IServiceCollection AddAppMetricaUploader(this IServiceCollection services, IConfigurationSection? configurationSection = null, Action<AppMetricaOptions>? configureOptions = null)
     {
         var optionsBuilder = services.AddOptions<AppMetricaOptions>();
 
