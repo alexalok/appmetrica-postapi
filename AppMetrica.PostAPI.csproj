@@ -6,7 +6,7 @@
 		<Nullable>enable</Nullable>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -19,7 +19,7 @@
 		<PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 
-		<RepositoryUrl>https://github.com/alexalok/AspNetCore.StructuredLogging.Extensions</RepositoryUrl>
+		<RepositoryUrl>https://github.com/alexalok/appmetrica-postapi</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 	</PropertyGroup>
 
