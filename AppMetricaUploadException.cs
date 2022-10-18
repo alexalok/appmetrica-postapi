@@ -9,6 +9,8 @@ public class AppMetricaUploadException : Exception
 
     }
 
+    public AppMetricaUploadException(string message) : base(message) { }
+
     static string GetMessage(HttpStatusCode statusCode) =>
         statusCode switch
         {

@@ -6,13 +6,13 @@
 		<Nullable>enable</Nullable>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<Version>1.0.3</Version>
+		<Version>1.0.4</Version>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<Authors>alexalok</Authors>
 		<Description>AppMetrica PostAPI client.</Description>
-		<PackageReleaseNotes>Changed upload url.</PackageReleaseNotes>
+		<PackageReleaseNotes>Add an additional check for AppMetrica response.</PackageReleaseNotes>
 		<PackageTags>appmetrica, yandex metrica, postapi, server events</PackageTags>
 		
 		<Copyright>© alexalok 2021-2022</Copyright>
