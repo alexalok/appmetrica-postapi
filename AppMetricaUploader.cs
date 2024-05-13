@@ -1,5 +1,7 @@
 ﻿using System.Net;
 using System.Text;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 
 namespace AppMetrica.PostAPI;
@@ -12,12 +14,14 @@ public interface IAppMetricaUploader
 public class AppMetricaUploader : IAppMetricaUploader
 {
     readonly HttpClient _httpClient;
+    private readonly ILogger<AppMetricaUploader> _logger;
     readonly AppMetricaOptions _options;
 
-    public AppMetricaUploader(IOptions<AppMetricaOptions> options, HttpClient? httpClient = null)
+    public AppMetricaUploader(IOptions<AppMetricaOptions> options, HttpClient? httpClient = null, ILogger<AppMetricaUploader>? logger = null)
     {
         _options = options.Value;
         _httpClient = httpClient ?? new HttpClient() { BaseAddress = AppMetricaOptions.BaseUrl };
+        _logger = logger ?? NullLogger<AppMetricaUploader>.Instance;
     }
 
     public async Task UploadEvent(AppMetricaEvent @event)
@@ -36,7 +40,12 @@ public class AppMetricaUploader : IAppMetricaUploader
         long timestamp = @event.EventTime.ToUnixTimeSeconds();
         uriSb.Append("&event_timestamp=" + timestamp);
 
-        var req = new HttpRequestMessage(HttpMethod.Post, uriSb.ToString());
+        var reportUrl = uriSb.ToString();
+
+        if (_logger.IsEnabled(LogLevel.Trace))
+            _logger.LogTrace("Reporting AppMetrica event: {ReportUrl}", reportUrl);
+
+        var req = new HttpRequestMessage(HttpMethod.Post, reportUrl);
 
         var resp = await _httpClient.SendAsync(req);
         if (resp.StatusCode != HttpStatusCode.OK)
