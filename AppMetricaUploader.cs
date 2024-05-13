@@ -44,6 +44,6 @@ public class AppMetricaUploader : IAppMetricaUploader
 
         string respContent = await resp.Content.ReadAsStringAsync();
         if (respContent != "Your data has been uploaded.")
-            throw new AppDomainUnloadedException($"Unexpected answer from AppMetrica: '{respContent}'.");
+            throw new AppMetricaUploadException($"Unexpected answer from AppMetrica: '{respContent}'.");
     }
 }
