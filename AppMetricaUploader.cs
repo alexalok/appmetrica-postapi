@@ -35,10 +35,17 @@ public class AppMetricaUploader : IAppMetricaUploader
             uriSb.Append("&profile_id=" + @event.ProfileId);
 
         if (@event.AppMetricaDeviceId != null)
-            uriSb.Append("&appmetrica_device_id =" + @event.AppMetricaDeviceId);
+            uriSb.Append("&appmetrica_device_id=" + @event.AppMetricaDeviceId);
 
         long timestamp = @event.EventTime.ToUnixTimeSeconds();
         uriSb.Append("&event_timestamp=" + timestamp);
+
+        if (@event.EventJson != null)
+        {
+            var json = @event.EventJson.ToJsonString();
+            var encodedJson = Uri.EscapeDataString(json);
+            uriSb.Append("&event_json=" + encodedJson);
+        }
 
         var reportUrl = uriSb.ToString();
 
